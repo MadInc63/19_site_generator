@@ -78,5 +78,6 @@ if __name__ == '__main__':
     config = read_config(config_file_name)
     make_site(config)
     server = Server()
+    server.watch('template/../*.html', make_site(config))
     server.watch('articles/../*.md', make_site(config))
     server.serve(root='site/')
