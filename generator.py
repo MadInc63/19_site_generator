@@ -50,7 +50,9 @@ def make_article_page(markup, file_path_to_html, title):
         }))
 
 
-def make_site(config_data):
+def make_site():
+    config_file_name = 'config.json'
+    config_data = read_config(config_file_name)
     create_folders_for_pages(config_data)
     make_index_html(config_data)
     for article in config_data['articles']:
@@ -74,10 +76,8 @@ def make_site(config_data):
 
 
 if __name__ == '__main__':
-    config_file_name = 'config.json'
-    config = read_config(config_file_name)
-    make_site(config)
+    make_site()
     server = Server()
-    server.watch('template/../*.html', make_site(config))
-    server.watch('articles/../*.md', make_site(config))
+    server.watch('template/', make_site)
+    server.watch('articles/', make_site)
     server.serve(root='site/')

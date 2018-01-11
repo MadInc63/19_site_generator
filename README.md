@@ -13,7 +13,7 @@ pip install -r requirements.txt # alternatively try pip3
 ```
 # Quickstart
 
-Have to use module generator.py after python3. This is create site. After make change in /template/ or /articles/,site auto recreate. Example of script launch on Linux, Python 3.5:
+Have to use module generator.py after python3. This is create site. After make change in template/ or articles/,site auto recreate. Example of script launch on Linux, Python 3.5:
 
 ```Bash
 $ python3 generator.py
@@ -21,6 +21,8 @@ $ python3 generator.py
 [I 180111 15:47:42 handlers:60] Start watching changes
 [I 180111 15:47:42 handlers:62] Start detecting changes
 ```
+
+If you don't want to refresh website in browser after each change you can add the script `<script src="https://github.com/livereload/livereload-js/raw/master/dist/livereload.js?host=localhost"></script>` to the bottom of the `<body>` tag:
 
 # Project Goals
 
