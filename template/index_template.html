@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Энциклопедия Devman.org</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <header class="bg-info py-3 mb-5">
+      <div class="container text-white">
+        <h1 class="font-weight-bold">Энциклопедия Devman.org</h1>
+        <h6>Знания, необходимые для старта. Коротко. Ясно. В сжатом виде.</h6>
+      </div>
+    </header>
+    <main class="container">
+      <div class="row d-table w-100 mb-md-5">
+        {% for topic in topics %}
+        <div class="col-md-4 float-md-left">
+            <h2>{{ topic['title']|safe }}</h2>
+            <ul class="list-unstyled pl-3">
+            {% for article in articles if article['topic'] == topic['slug'] %}
+                <li><a href="{{ article['source'] | replace('.md', '.html') | replace(' ', '_') | replace('&', '') | replace(';', '')}}"><span class="h5">{{ article['title']|e }}</span></a></li>
+            {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+      </div>
+      <hr>
+    </main>
+  </body>
+</html>
