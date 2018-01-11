@@ -76,6 +76,7 @@ def make_site(config_data):
 if __name__ == '__main__':
     config_file_name = 'config.json'
     config = read_config(config_file_name)
+    make_site(config)
     server = Server()
     server.watch('articles/../*.md', make_site(config))
     server.serve(root='site/')
