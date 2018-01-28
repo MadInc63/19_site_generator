@@ -13,6 +13,8 @@ pip install -r requirements.txt # alternatively try pip3
 ```
 # Quickstart
 
+The site can be viewed from the link https://madinc63.github.io/
+
 Have to use module generator.py after python3. This is create site. After make change in template/ or articles/,site auto recreate. Example of script launch on Linux, Python 3.5:
 
 ```Bash
